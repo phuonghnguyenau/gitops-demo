@@ -1,4 +1,4 @@
 ---
 - op: "replace"
   path: "/spec/text"
-  value: "Lab OpenShift Cluster"
+  value: "AWS Demo OpenShift Cluster"
