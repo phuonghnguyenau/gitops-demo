@@ -11,6 +11,8 @@ spec:
       elements:
       - name: cluster-config
       - name: auth
+      - name: logging-operator
+      - name: oadp-operator
   template:
     metadata:
       name: '{{.name}}'
