@@ -32,7 +32,6 @@ do
     ELAPSED_SECONDS=$((ELAPSED_SECONDS + INTERVAL_SECONDS))
   fi
 
-  if 
 done
 
 # final check at timeout
