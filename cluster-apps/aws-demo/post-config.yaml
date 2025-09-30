@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: https://github.com/phuonghnguyenau/gitops-demo.git
         targetRevision: main
-        path: 'post-config/{{.name}}/overlays/aws-demo'
+        path: 'post-config/{{.name}}/overlays/aws-demo/'
       destination:
         server: https://kubernetes.default.svc
       syncPolicy:
