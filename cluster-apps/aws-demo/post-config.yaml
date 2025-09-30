@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: aws-demo-cluster-post-config
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - name: gitops-operator
+      - name: cluster-config
+      - name: auth
+      - name: logging-operator
+      - name: oadp-operator
+  template:
+    metadata:
+      name: '{{.name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/phuonghnguyenau/gitops-demo.git
+        targetRevision: main
+        path: 'post-config/{{.name}}/overlays/aws-demo/'
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
