@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ../../base
   - htpasswd-provider.yaml
+  - cluster-admins-group.yaml
