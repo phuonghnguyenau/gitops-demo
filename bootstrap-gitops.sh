@@ -16,7 +16,7 @@ CLUSTER=$1
 echo "Use kustomize to intialise OpenShift GitOps operator onto cluster..."
 oc apply -k post-config/gitops-operator/overlays/${CLUSTER}/
 
-echo "Wait until OpenShift GitOps operator has been installed successfully..."
+echo -e "\nWait until OpenShift GitOps operator has been installed successfully..."
 
 while [ $ELAPSED_SECONDS -lt $TIMEOUT_SECONDS ]
 do
@@ -42,4 +42,5 @@ if [ "$STATUS" != "Available" ]; then
     exit 1
 fi
 
+echo -e "\nBootstrapping GitOps for ${CLUSTER}..."
 oc create -f cluster-apps/${CLUSTER}/post-config.yaml -n openshift-gitops
